@@ -10,8 +10,8 @@
     <view class="result" v-if="sleepTimes.length">
       <view class="result-title">推荐入睡时间：</view>
       <view class="sleep-time-list">
-        <view class="sleep-time" v-for="(time, idx) in sleepTimes" :key="idx">
-          {{ time }}
+        <view class="sleep-time" v-for="(item, idx) in sleepTimes" :key="idx">
+          {{ item.time }}<text class="duration">（{{ item.duration }}小时）</text>
         </view>
       </view>
     </view>
@@ -47,7 +47,10 @@ export default {
         let minute = (sleepMinutes + 1440) % 60;
         hour = hour < 10 ? '0' + hour : '' + hour;
         minute = minute < 10 ? '0' + minute : '' + minute;
-        return `${hour}:${minute}`;
+        return {
+          time: `${hour}:${minute}`,
+          duration: (cycle * 1.5).toFixed(1)
+        };
       });
     }
   }
@@ -92,7 +95,12 @@ export default {
   padding: 16rpx;
   border-radius: 8rpx;
   text-align: center;
-  font-size: 28rpx;
+  font-size: 30rpx;
+  color: #888;
+}
+.duration {
+  font-size: 20rpx;
+  color: #b0b8c1;
 }
 .tips {
   color: #888;
