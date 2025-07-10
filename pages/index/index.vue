@@ -3,14 +3,13 @@
     <view class="title">睡眠时间计算器</view>
     <view class="desc">请选择您要进行的计算：</view>
     <view class="btn-list">
-			
-		<button class="main-btn" @click="goToWakeToSleep">
-		  <text class="btn-main">计算起床时间</text>
-		  <text class="btn-sub">根据入睡时间推荐最佳醒来点</text>
-		</button>
       <button class="main-btn" @click="goToSleepToWake">
         <text class="btn-main">计算入睡时间</text>
         <text class="btn-sub">根据醒来时间推荐最佳入睡点</text>
+      </button>
+      <button class="main-btn" @click="goToWakeToSleep">
+        <text class="btn-main">计算起床时间</text>
+        <text class="btn-sub">根据入睡时间推荐最佳起床点</text>
       </button>
     </view>
   </view>
@@ -64,13 +63,15 @@ export default {
   width: 90%;
   background: #fff;
   border-radius: 18rpx;
-  box-shadow: 0 4rpx 16rpx #e0e7ef;
+  border: 2rpx solid #e6f4ea;
+  /* box-shadow: 0 4rpx 16rpx #e0e7ef; 兼容性差，已去除 */
   padding: 36rpx 0 28rpx 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: none;
   margin: 0;
+  border: 2rpx solid #c8e6df;
 }
 .btn-main {
   font-size: 36rpx;
