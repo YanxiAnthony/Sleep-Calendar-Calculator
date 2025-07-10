@@ -3,15 +3,16 @@
     <view class="title">计算入睡时间</view>
     <view class="desc">请选择您希望醒来的时间：</view>
     <picker mode="time" :value="wakeTime" @change="onTimeChange">
-      <view class="picker">
-        {{ wakeTime }}
+      <view class="picker-area">
+        <view class="picker-time">{{ wakeTime }}</view>
       </view>
     </picker>
     <view class="result" v-if="sleepTimes.length">
-      <view class="result-title">推荐入睡时间：</view>
+      <view class="result-title">推荐入睡时间</view>
       <view class="sleep-time-list">
-        <view class="sleep-time" v-for="(item, idx) in sleepTimes" :key="idx">
-          {{ item.time }}<text class="duration">（{{ item.duration }}小时）</text>
+        <view class="sleep-time-card" v-for="(item, idx) in sleepTimes" :key="idx">
+          <text class="sleep-time-main">{{ item.time }}</text>
+          <text class="duration">（{{ item.duration }}小时）</text>
         </view>
       </view>
     </view>
@@ -59,53 +60,82 @@ export default {
 
 <style scoped>
 .container {
-  padding: 40rpx 20rpx;
+  padding: 48rpx 24rpx 32rpx 24rpx;
+  background: #f7fafc;
+  min-height: 100vh;
 }
 .title {
-  font-size: 40rpx;
-  font-weight: bold;
-  margin-bottom: 30rpx;
+  font-size: 44rpx;
+  font-weight: 600;
+  color: #2a7a6c;
+  margin-bottom: 24rpx;
   text-align: center;
+  letter-spacing: 2rpx;
 }
 .desc {
   font-size: 28rpx;
-  margin-bottom: 20rpx;
-}
-.picker {
-  background: #f5f5f5;
-  padding: 20rpx;
-  border-radius: 10rpx;
+  color: #666;
+  margin-bottom: 18rpx;
   text-align: center;
-  font-size: 32rpx;
-  margin-bottom: 30rpx;
+}
+.picker-area {
+  background: #e6f4ea;
+  border-radius: 16rpx;
+  padding: 24rpx 0;
+  margin: 0 auto 32rpx auto;
+  width: 60%;
+  box-shadow: 0 2rpx 8rpx #d2e6de;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.picker-time {
+  font-size: 38rpx;
+  color: #2a7a6c;
+  font-weight: 500;
+  letter-spacing: 1rpx;
 }
 .result-title {
-  font-size: 30rpx;
-  font-weight: bold;
-  margin-bottom: 10rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 18rpx;
+  text-align: center;
 }
 .sleep-time-list {
   display: flex;
   flex-direction: column;
-  gap: 10rpx;
+  gap: 18rpx;
   margin-bottom: 20rpx;
+  align-items: center;
 }
-.sleep-time {
-  background: #e0f7fa;
-  padding: 16rpx;
-  border-radius: 8rpx;
-  text-align: center;
-  font-size: 30rpx;
-  color: #888;
+.sleep-time-card {
+  background: #fff;
+  border-radius: 18rpx;
+  box-shadow: 0 4rpx 16rpx #e0e7ef;
+  padding: 22rpx 48rpx;
+  display: flex;
+  align-items: baseline;
+  font-size: 0;
+  min-width: 220rpx;
+  justify-content: center;
+}
+.sleep-time-main {
+  font-size: 36rpx;
+  color: #2a7a6c;
+  font-weight: 600;
+  margin-right: 10rpx;
 }
 .duration {
-  font-size: 20rpx;
+  font-size: 22rpx;
   color: #b0b8c1;
+  font-weight: 400;
 }
 .tips {
-  color: #888;
+  color: #aaa;
   font-size: 24rpx;
-  margin-top: 30rpx;
+  margin-top: 40rpx;
   text-align: center;
+  letter-spacing: 1rpx;
 }
 </style> 
