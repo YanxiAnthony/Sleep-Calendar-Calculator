@@ -9,13 +9,13 @@
 		{
 			"path": "pages/SleepToWake/index",
 			"style": {
-				"navigationBarTitleText": "睡醒时间计算入睡时间"
+				"navigationBarTitleText": "计算入睡时间"
 			}
 		},
 		{
 			"path": "pages/WakeToSleep/index",
 			"style": {
-				"navigationBarTitleText": "入睡时间计算睡醒时间"
+				"navigationBarTitleText": "计算睡醒时间"
 			}
 		}
 	],

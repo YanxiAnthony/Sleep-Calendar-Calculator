@@ -1,8 +1,8 @@
 <template>
   <view class="container">
     <view class="title">睡眠时间计算器</view>
-    <button class="main-btn" @click="goToSleepToWake">睡醒时间计算入睡时间</button>
-    <button class="main-btn" @click="goToWakeToSleep">入睡时间计算睡醒时间</button>
+    <button class="main-btn" @click="goToSleepToWake">计算入睡时间</button>
+    <button class="main-btn" @click="goToWakeToSleep">计算睡醒时间</button>
   </view>
 </template>
 
@@ -14,9 +14,6 @@ export default {
     },
     goToWakeToSleep() {
       uni.navigateTo({ url: '/pages/WakeToSleep/index' });
-    },
-    goToOldCalculator() {
-      uni.navigateTo({ url: '/pages/OldSleepCalculator/index' });
     }
   }
 }

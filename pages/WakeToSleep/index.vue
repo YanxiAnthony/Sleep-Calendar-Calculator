@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    <view class="title">入睡时间计算睡醒时间</view>
+    <view class="title">计算睡醒时间</view>
     <view class="desc">请选择您准备入睡的时间：</view>
     <picker mode="time" :value="sleepTime" @change="onTimeChange">
       <view class="picker">
