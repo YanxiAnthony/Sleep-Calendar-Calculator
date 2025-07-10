@@ -3,13 +3,14 @@
     <view class="title">睡眠时间计算器</view>
     <view class="desc">请选择您要进行的计算：</view>
     <view class="btn-list">
+			
+		<button class="main-btn" @click="goToWakeToSleep">
+		  <text class="btn-main">计算起床时间</text>
+		  <text class="btn-sub">根据入睡时间推荐最佳醒来点</text>
+		</button>
       <button class="main-btn" @click="goToSleepToWake">
         <text class="btn-main">计算入睡时间</text>
         <text class="btn-sub">根据醒来时间推荐最佳入睡点</text>
-      </button>
-      <button class="main-btn" @click="goToWakeToSleep">
-        <text class="btn-main">计算睡醒时间</text>
-        <text class="btn-sub">根据入睡时间推荐最佳醒来点</text>
       </button>
     </view>
   </view>

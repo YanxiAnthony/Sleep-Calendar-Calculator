@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    <view class="title">计算睡醒时间</view>
+    <view class="title">计算起床时间</view>
     <view class="desc">请选择您准备入睡的时间：</view>
     <picker mode="time" :value="sleepTime" @change="onTimeChange">
       <view class="picker-area">
@@ -8,7 +8,7 @@
       </view>
     </picker>
     <view class="result" v-if="wakeTimes.length">
-      <view class="result-title">推荐醒来时间</view>
+      <view class="result-title">推荐起床时间</view>
       <view class="sleep-time-list">
         <view class="sleep-time-card" v-for="(item, idx) in wakeTimes" :key="idx">
           <text class="sleep-time-main">{{ item.time }}</text>
@@ -32,6 +32,11 @@ export default {
     }
   },
   onLoad() {
+    // 获取当前时间
+    const now = new Date();
+    const h = now.getHours().toString().padStart(2, '0');
+    const m = now.getMinutes().toString().padStart(2, '0');
+    this.sleepTime = `${h}:${m}`;
     this.calcWakeTimes();
   },
   methods: {

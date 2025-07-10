@@ -32,6 +32,12 @@ export default {
     }
   },
   onLoad() {
+    // 获取当前时间并加9小时
+    const now = new Date();
+    now.setHours(now.getHours() + 9);
+    const h = now.getHours().toString().padStart(2, '0');
+    const m = now.getMinutes().toString().padStart(2, '0');
+    this.wakeTime = `${h}:${m}`;
     this.calcSleepTimes();
   },
   methods: {
